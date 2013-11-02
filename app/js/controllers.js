@@ -56,7 +56,6 @@ motoAdsApp.controller('AdvertsController', ['$scope', 'Brand', 'Country', 'Adver
     $scope.addBrandModelFilter = function(brand, model) {
       $scope.filter.brandName = brand.name;
       $scope.filter.modelName = model.name;
-      //console.log('#addFilter ' + $scope.filter.brandName + ' ' + $scope.filter.modelName);
     };
 
     $scope.$watch('filter', filterAdverts, true);
@@ -68,31 +67,24 @@ motoAdsApp.controller('AdvertsController', ['$scope', 'Brand', 'Country', 'Adver
           $scope.filter.region = null;
         }
         if ($scope.filter.brandName && $scope.filter.brandName !== row.brandName) {
-          //console.log('#if1 row ' + row.brandName + ' filter ' + $scope.filter.brandName);
           return;
         }
         if ($scope.filter.modelName && $scope.filter.modelName !== row.modelName) {
-          //console.log('#if2 row ' + row.modelName + ' filter ' + $scope.filter.modelName);
           return;
         }
         if ($scope.filter.country && $scope.filter.country.name !== row.countryName) {
-          //console.log('#if3 row ' + row.countryName + ' filter ' + $scope.filter.country.name);
           return;
         }
         if ($scope.filter.region && $scope.filter.region.name !== row.regionName) {
-          //console.log('#if4 row ' + row.regionName + ' filter ' + $scope.filter.region.name);
           return;
         }
         if ($scope.filter.yearFrom && $scope.filter.yearFrom > row.year) {
-          //console.log('#if5 row ' + row.year + ' filter ' + $scope.filter.yearFrom);
           return;
         }
         if ($scope.filter.yearTo && $scope.filter.yearTo < row.year) {
-          //console.log('#if6 row ' + row.year + ' filter ' + $scope.filter.yearTo);
           return;
         }
         $scope.adverts.push(row);
-        //console.log('#push row ' + row.brandName + ' ' + row.modelName);
       });
     }
     ;
