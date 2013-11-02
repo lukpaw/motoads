@@ -78,6 +78,13 @@
       </div>
 
       <table class="table table-striped">
+        <tr>
+          <th>Image/Country/Region</th>
+          <th>Brand</th>
+          <th>Model</th>
+          <th>Year</th>
+          <th>Price ($)</th>
+        </tr>        
         <tr ng-repeat="advert in adverts| orderBy:sortByCol.key">
           <td><a href="#/"><img class="img-rounded"
                                 ng-src="{{advert.imageUrl}}"></a><br/>
