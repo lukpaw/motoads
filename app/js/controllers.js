@@ -8,7 +8,8 @@ motoAdsApp.controller('NavbarController', function NavbarController($scope, $loc
 
 });
 
-motoAdsApp.controller('AdvertsController', ['$scope', 'Brand', 'Country', 'Advert', function($scope, Brand, Country, Advert) {
+motoAdsApp.controller('AdvertsController', ['$scope', 'Brand', 'Country', 'Advert', 
+  function($scope, Brand, Country, Advert) {
     $scope.oneAtATime = true;
 
     $scope.brands = Brand.query();
@@ -86,12 +87,12 @@ motoAdsApp.controller('AdvertsController', ['$scope', 'Brand', 'Country', 'Adver
         }
         $scope.adverts.push(row);
       });
-    }
-    ;
+    };
 
   }]);
 
-motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Advert', function($scope, Brand, Country) {
+motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Advert', 
+  function($scope, Brand, Country) {
     $scope.brands = Brand.query();
 
     $scope.countries = Country.query();

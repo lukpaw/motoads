@@ -45,13 +45,18 @@
           <div class="span12">
             <span ng-show="isAnyFilter()">Filters:</span>
             <div class="ma-filter-div">
-              <span ng-show="filter.modelName">{{filter.brandName}} {{filter.modelName}} <i class="icon-remove-sign icon-white" ng-click="filter.brandName = null;
+              <span ng-show="filter.modelName">{{filter.brandName}} {{filter.modelName}}
+                <i class="icon-remove-sign icon-white" ng-click="filter.brandName = null;
                 filter.modelName = null"></i></span>
-              <span ng-show="filter.country.name">{{filter.country.name}} <i class="icon-remove-sign icon-white" ng-click="filter.country = null;
+              <span ng-show="filter.country.name">{{filter.country.name}}
+                <i class="icon-remove-sign icon-white" ng-click="filter.country = null;
                 filter.region = null"></i></span>
-              <span ng-show="filter.region.name">{{filter.region.name}} <i class="icon-remove-sign icon-white" ng-click="filter.region = null"></i></span>
-              <span ng-show="filter.yearFrom">{{filter.yearFrom}} <i class="icon-remove-sign icon-white" ng-click="filter.yearFrom = null"></i></span>
-              <span ng-show="filter.yearTo">{{filter.yearTo}} <i class="icon-remove-sign icon-white" ng-click="filter.yearTo = null"></i></span>
+              <span ng-show="filter.region.name">{{filter.region.name}}
+                <i class="icon-remove-sign icon-white" ng-click="filter.region = null"></i></span>
+              <span ng-show="filter.yearFrom">{{filter.yearFrom}}
+                <i class="icon-remove-sign icon-white" ng-click="filter.yearFrom = null"></i></span>
+              <span ng-show="filter.yearTo">{{filter.yearTo}}
+                <i class="icon-remove-sign icon-white" ng-click="filter.yearTo = null"></i></span>
             </div>
             <a ng-show="isAnyFilter()" href="" ng-click="removeAllFilter()">Remove all</a>
           </div>
