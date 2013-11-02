@@ -1,0 +1,94 @@
+<div class="row-fluid">
+
+  <div class="span3">
+    <h4>Adverts</h4>
+    <div>
+      <accordion close-others="oneAtATime">
+        <accordion-group heading="{{brand.name}}" ng-repeat="brand in brands">
+          <ul ng-repeat="model in brand.models">
+            <li><a href="" ng-click="addBrandModelFilter(brand, model)">{{model.name}}</a></li>
+          </ul>
+        </accordion-group>
+      </accordion>
+    </div>
+  </div>
+
+  <div class="span9">
+
+    <div>
+      <h4>Adverts search</h4>
+      <form>
+        <div class="row-fluid">
+
+          <div class="span4">
+            <label>Country</label>
+            <select ng-model="filter.country" ng-options="c.name for c in countries">
+              <option value=""></option>
+            </select>
+          </div>
+
+          <div class="span4">
+            <label>Region</label>
+            <select ng-model="filter.region" ng-options="r.name for r in filter.country.regions">
+              <option value=""></option>
+            </select>
+          </div>
+
+          <div class="span4">
+            <label>Year of production</label>
+            <input ng-model="filter.yearFrom" class="input-small" min="1980" max="2013" ng-minlength="4" ng-maxlength="4" type="number" placeholder="From">
+            <input ng-model="filter.yearTo" class="input-small" min="1980" max="2013" ng-minlength="4" ng-maxlength="4" type="number" placeholder="To">
+          </div>
+        </div>
+
+        <div class="row-fluid">
+          <div class="span12">
+            <span ng-show="isAnyFilter()">Filters:</span>
+            <div class="ma-filter-div">
+              <span ng-show="filter.modelName">{{filter.brandName}} {{filter.modelName}} <i class="icon-remove-sign icon-white" ng-click="filter.brandName = null;
+                filter.modelName = null"></i></span>
+              <span ng-show="filter.country.name">{{filter.country.name}} <i class="icon-remove-sign icon-white" ng-click="filter.country = null;
+                filter.region = null"></i></span>
+              <span ng-show="filter.region.name">{{filter.region.name}} <i class="icon-remove-sign icon-white" ng-click="filter.region = null"></i></span>
+              <span ng-show="filter.yearFrom">{{filter.yearFrom}} <i class="icon-remove-sign icon-white" ng-click="filter.yearFrom = null"></i></span>
+              <span ng-show="filter.yearTo">{{filter.yearTo}} <i class="icon-remove-sign icon-white" ng-click="filter.yearTo = null"></i></span>
+            </div>
+            <a ng-show="isAnyFilter()" href="" ng-click="removeAllFilter()">Remove all</a>
+          </div>
+        </div>
+
+      </form>
+    </div>	
+
+    <div class="ma-adverts-list">
+
+      <div class="row-fluid">
+        <div class="span4">
+          <h4>Adverts found ({{adverts.length}})</h4>
+        </div>
+
+        <div class="offset3 span5">
+          <form class="form-inline">
+            <label>Sort by</label>
+            <select ng-model="sortByCol" ng-options="s.name for s in sortByCols">
+              <option value=""></option>
+            </select>
+          </form>
+        </div>
+      </div>
+
+      <table class="table table-striped">
+        <tr ng-repeat="advert in adverts| orderBy:sortByCol.key">
+          <td><a href="#/"><img class="img-rounded"
+                                ng-src="{{advert.imageUrl}}"></a><br/>
+            <span>{{advert.countryName}}, {{advert.regionName}}</span></td>
+          <td>{{advert.brandName}}</td>
+          <td>{{advert.modelName}}</td>
+          <td>{{advert.year}}</td>
+          <td>{{advert.price}}</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>

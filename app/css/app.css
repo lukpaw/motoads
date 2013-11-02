@@ -1,0 +1,28 @@
+.ma-filter-div {
+  display: inline;
+  padding-top: 8px;
+}
+
+.ma-filter-div span {
+  text-align: center;
+  min-width: 60px;
+  background-color: #2f96b4;
+  color: white;
+  border: 0;
+  border-radius: 3px;
+  padding: 3px 10px;
+}
+
+.ma-adverts-list img {
+  margin-right: 10px;
+  width: 160px;
+  height: 120px;
+}
+
+.ma-add-advert-form button {
+  width: 120px;
+}
+
+.ma-form-msg-error {
+  color: #b94a48; 
+}

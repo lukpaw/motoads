@@ -1,0 +1,6 @@
+[
+  {"name": "Audi", "models": [{"name": "A1"}, {"name": "A3"}, {"name": "A4"}]},
+  {"name": "BMW", "models": [{"name": "Series 3"}, {"name": "Series 5"}, {"name": "Series 7"}]},
+  {"name": "Citroen", "models": [{"name": "C1"}, {"name": "C2"}, {"name": "C3"}]},
+  {"name": "Dacia", "models": [{"name": "Duster"}, {"name": "Logan"}, {"name": "Sandero"}]}
+]

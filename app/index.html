@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app="motoAdsApp">
+  <head>
+    <meta charset="utf-8">
+    <title>MotoAds</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="navbar" ng-controller="NavbarController">
+        <div class="navbar-inner">
+          <a class="brand" href="#/">MotoAds</a>
+          <ul class="nav">
+            <li ng-class="{active: routeIs('/')}"><a href="#/">Adverts</a></li>
+            <li ng-class="{active: routeIs('/addAdvert')}"><a
+                href="#/addAdvert">Add advert</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <ng-view></ng-view>
+
+    </div>
+
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular/angular-resource.js"></script>
+    <script src="lib/ui-bootstrap/ui-bootstrap-tpls-0.6.0.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+
+  </body>
+</html>

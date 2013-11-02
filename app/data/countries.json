@@ -1,0 +1,5 @@
+[
+  {"name": "Germany", "regions": [{"name": "Bavaria"}, {"name": "Hesse"}, {"name": "Saarland"}]},
+  {"name": "Poland", "regions": [{"name": "Lesser Poland"}, {"name": "Masovia"}, {"name": "Silesia"}]},
+  {"name": "Czech Republic", "regions": [{"name": "Liberec"}, {"name": "Karlovy Vary"}, {"name": "Zlin"}]}
+]

@@ -1,0 +1,75 @@
+<div class="container">
+
+  <form name="advertForm" novalidate class="ma-add-advert-form form-horizontal">
+    <h4>Add new advert</h4>
+
+    <div class="control-group">
+      <label class="control-label">Brand</label>
+      <div class="controls">
+        <select name="brand" ng-model="newAdvert.brand" required ng-options="c.name for c in brands">
+          <option value=""></option>
+        </select>
+        <span class="ma-form-msg-error help-inline" ng-show="advertForm.brand.$dirty && advertForm.brand.$invalid">Invalid brand</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Model</label>
+      <div class="controls">
+        <select name="model" ng-model="newAdvert.model" required ng-options="r.name for r in newAdvert.brand.models">
+          <option value=""></option>
+        </select>
+        <span class="ma-form-msg-error help-inline" ng-show="advertForm.model.$dirty && advertForm.model.$invalid">Invalid model</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Year</label>
+      <div class="controls">
+        <input type="number" name="year" ng-model="newAdvert.year" required min="1900" ng-minlength="4" ng-maxlength="4">
+        <span class="ma-form-msg-error help-inline" ng-show="advertForm.year.$dirty && advertForm.year.$invalid">Invalid year</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Price ($)</label>
+      <div class="controls">
+        <input type="text" ma-currency name="price" ng-model="newAdvert.price" required>
+        <span class="ma-form-msg-error help-inline" ng-show="advertForm.price.$dirty && advertForm.price.$invalid">Invalid price</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Country</label>
+      <div class="controls">
+        <select name="country" ng-model="newAdvert.country" required ng-options="c.name for c in countries">
+          <option value=""></option>
+        </select>
+        <span class="ma-form-msg-error help-inline" ng-show="advertForm.country.$dirty && advertForm.country.$invalid">Invalid country</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Region</label>
+      <div class="controls">
+        <select name="region" ng-model="newAdvert.region" required ng-options="r.name for r in newAdvert.country.regions">
+          <option value=""></option>
+        </select>
+        <span class="ma-form-msg-error help-inline" ng-show="advertForm.region.$dirty && advertForm.region.$invalid">Invalid region</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <button ng-click="reset()" ng-disabled="isUnchanged()" 
+                class="btn btn-primary">Reset</button>
+        <button ng-click="add()" ng-disabled="advertForm.$invalid || isUnchanged()"
+                class="btn btn-primary">Save</button>
+      </div>
+    </div>
+
+    <div class="muted">Notice! Images upload not supported yet.</div>
+
+  </form>
+
+</div>
