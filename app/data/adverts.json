@@ -3,7 +3,7 @@
     "brandName": "Audi",
     "modelName": "A1",
     "year": 2011,
-    "price": "45000",
+    "price": "35000",
     "imageUrl": "img/audi_a1_1.jpg",
     "countryName": "Germany",
     "regionName": "Bavaria"
@@ -11,8 +11,8 @@
   {
     "brandName": "Audi",
     "modelName": "A1",
-    "year": 2011,
-    "price": "45000",
+    "year": 2010,
+    "price": "30000",
     "imageUrl": "img/audi_a1_2.jpg",
     "countryName": "Poland",
     "regionName": "Masovia"
@@ -20,8 +20,8 @@
   {
     "brandName": "Audi",
     "modelName": "A1",
-    "year": 2011,
-    "price": "45000",
+    "year": 2009,
+    "price": "28000",
     "imageUrl": "img/audi_a1_3.jpg",
     "countryName": "Germany",
     "regionName": "Bavaria"
@@ -30,7 +30,7 @@
     "brandName": "Audi",
     "modelName": "A1",
     "year": 2010,
-    "price": "25000",
+    "price": "32000",
     "imageUrl": "img/audi_a1_4.jpg",
     "countryName": "Poland",
     "regionName": "Silesia"
