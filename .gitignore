@@ -215,7 +215,4 @@ pip-log.txt
 .mr.developer.cfg
 /nbproject/
 /node_modules/
-/config/
-/test/
 /package.json
-/scripts/
