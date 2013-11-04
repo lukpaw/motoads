@@ -24,6 +24,7 @@ motoAdsApp.controller('AdvertsController', ['$scope', 'Brand', 'Country', 'Adver
         "name": "Price"
       }];
 
+    $scope.adverts = [];
     var allAdverts = Advert.query(filterAdverts);
 
     $scope.filter = {
