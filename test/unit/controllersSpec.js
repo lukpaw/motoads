@@ -63,13 +63,15 @@ describe('MotoAds controllers', function() {
   beforeEach(module('motoAdsServices'));
 
   describe('AdvertsController', function() {
-    var scope, ctrl, $httpBackend;
+    var scope, ctrl, $httpBackend, orderByFilter;
 
-    beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
+    beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, $filter) {
       $httpBackend = _$httpBackend_;
       $httpBackend.expectGET('data/brands.json').respond(BRANDS_RESPONSE);
       $httpBackend.expectGET('data/countries.json').respond(COUNTRIES_RESPONSE);
       $httpBackend.expectGET('data/adverts.json').respond(ADVERTS_RESPONSE);
+ 
+      orderByFilter = $filter('orderBy');
 
       scope = $rootScope.$new();
       ctrl = $controller('AdvertsController', {$scope: scope});
@@ -131,6 +133,21 @@ describe('MotoAds controllers', function() {
 
       expect(scope.adverts.length).toBe(2);
     }); 
+    
+    it('should sort by year', function() {
+      expect(scope.adverts).toEqual([]);
+      $httpBackend.flush();
+      expect(scope.adverts.length).toBe(4);
+
+      var sortedAdverts = orderByFilter(scope.adverts, "year");
+
+      var prevYear = 0;
+      for (var i = 0; i < sortedAdverts.length; i++) {
+        var advert = sortedAdverts[i];
+        expect(advert.year).toBeGreaterThan(prevYear);
+        prevYear = advert.year;
+      }
+    });    
 
   });
 
