@@ -2,7 +2,7 @@
 
   <div class="span3">
     <h4>Adverts</h4>
-    <div>
+    <div class="ma-left-filter-panel">
       <accordion close-others="oneAtATime">
         <accordion-group heading="{{brand.name}}" ng-repeat="brand in brands">
           <ul ng-repeat="model in brand.models">
@@ -15,7 +15,7 @@
 
   <div class="span9">
 
-    <div>
+    <div class="ma-top-filter-panel">
       <h4>Adverts search</h4>
       <form>
         <div class="row-fluid">
@@ -44,7 +44,7 @@
         <div class="row-fluid">
           <div class="span12">
             <span ng-show="isAnyFilter()">Filters:</span>
-            <div class="ma-filter-div">
+            <div class="ma-chosen-filter-div">
               <span ng-show="filter.modelName">{{filter.brandName}} {{filter.modelName}}
                 <i class="icon-remove-sign icon-white" ng-click="filter.brandName = null;
                 filter.modelName = null"></i></span>
@@ -65,7 +65,7 @@
       </form>
     </div>	
 
-    <div class="ma-adverts-list">
+    <div>
 
       <div class="row-fluid">
         <div class="span4">
@@ -82,15 +82,15 @@
         </div>
       </div>
 
-      <table class="table table-striped">
-        <tr>
+      <table class="table table-striped ma-advert-table">
+        <tr class="ma-advert-table-headers">
           <th>Image/Country/Region</th>
           <th>Brand</th>
           <th>Model</th>
           <th>Year</th>
           <th>Price ($)</th>
         </tr>        
-        <tr ng-repeat="advert in adverts| orderBy:sortByCol.key">
+        <tr class="ma-advert-table-row" ng-repeat="advert in adverts| orderBy:sortByCol.key">
           <td><a href="#/"><img class="img-rounded"
                                 ng-src="{{advert.imageUrl}}"></a><br/>
             <span>{{advert.countryName}}, {{advert.regionName}}</span></td>
