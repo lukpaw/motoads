@@ -1,9 +1,9 @@
-.ma-filter-div {
+.ma-chosen-filter-div {
   display: inline;
   padding-top: 8px;
 }
 
-.ma-filter-div span {
+.ma-chosen-filter-div span {
   text-align: center;
   min-width: 60px;
   background-color: #2f96b4;
@@ -13,7 +13,7 @@
   padding: 3px 10px;
 }
 
-.ma-adverts-list img {
+.ma-advert-table img {
   margin-right: 10px;
   width: 160px;
   height: 120px;
