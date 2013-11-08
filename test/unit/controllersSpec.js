@@ -49,15 +49,6 @@ var ADVERTS_RESPONSE = [
   }];
 
 describe('MotoAds controllers', function() {
-
-  beforeEach(function() {
-    this.addMatchers({
-      toEqualData: function(expected) {
-        return angular.equals(this.actual, expected);
-      }
-    });
-  });
-
   beforeEach(module('motoAdsApp'));
   beforeEach(module('ui.bootstrap'));
   beforeEach(module('motoAdsServices'));
@@ -70,7 +61,7 @@ describe('MotoAds controllers', function() {
       $httpBackend.expectGET('data/brands.json').respond(BRANDS_RESPONSE);
       $httpBackend.expectGET('data/countries.json').respond(COUNTRIES_RESPONSE);
       $httpBackend.expectGET('data/adverts.json').respond(ADVERTS_RESPONSE);
- 
+
       orderByFilter = $filter('orderBy');
 
       scope = $rootScope.$new();
@@ -96,7 +87,7 @@ describe('MotoAds controllers', function() {
       expect(scope.adverts.length).toBe(2);
     });
 
-  it('should filter by country and region', function() {
+    it('should filter by country and region', function() {
       expect(scope.adverts).toEqual([]);
       $httpBackend.flush();
       expect(scope.adverts.length).toBe(4);
@@ -114,8 +105,8 @@ describe('MotoAds controllers', function() {
 
       expect(scope.adverts.length).toBe(2);
     });
-    
-  it('should filter by from yearFrom to yearTo', function() {
+
+    it('should filter by from yearFrom to yearTo', function() {
       expect(scope.adverts).toEqual([]);
       $httpBackend.flush();
       expect(scope.adverts.length).toBe(4);
@@ -132,8 +123,8 @@ describe('MotoAds controllers', function() {
       });
 
       expect(scope.adverts.length).toBe(2);
-    }); 
-    
+    });
+
     it('should sort by year', function() {
       expect(scope.adverts).toEqual([]);
       $httpBackend.flush();
@@ -147,7 +138,7 @@ describe('MotoAds controllers', function() {
         expect(advert.year).toBeGreaterThan(prevYear);
         prevYear = advert.year;
       }
-    });    
+    });
 
   });
 
