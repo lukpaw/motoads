@@ -3,7 +3,7 @@
 var motoAdsServices = angular.module('motoAdsServices', ['ngResource']);
 
 motoAdsServices.factory('Brand', ['$resource', function($resource) {
-    return $resource('data/:id.json', {}, {
+    return $resource('http://localhost\\:3000/api/:id', {}, {
       query: {
         method: 'GET',
         params: {
@@ -15,7 +15,7 @@ motoAdsServices.factory('Brand', ['$resource', function($resource) {
   }]);
 
 motoAdsServices.factory('Country', ['$resource', function($resource) {
-    return $resource('data/:id.json', {}, {
+    return $resource('http://localhost\\:3000/api/:id', {}, {
       query: {
         method: 'GET',
         params: {
@@ -27,7 +27,7 @@ motoAdsServices.factory('Country', ['$resource', function($resource) {
   }]);
 
 motoAdsServices.factory('Advert', ['$resource', function($resource) {
-    return $resource('data/:id.json', {}, {
+    return $resource('http://localhost\\:3000/api/:id', {}, {
       query: {
         method: 'GET',
         params: {
