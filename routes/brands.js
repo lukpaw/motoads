@@ -10,9 +10,9 @@ db = new Db('motoads', server);
 db.open(function(err, db) {
   if (!err) {
     console.log("Connected to 'motoads' database");
-    db.collection('adverts', {strict: true}, function(err, collection) {
+    db.collection('brands', {strict: true}, function(err, collection) {
       if (err) {
-        console.log("The 'adverts' collection doesn't exist. Creating it with sample data...");
+        console.log("The 'brands' collection doesn't exist. Creating it with sample data...");
         populateDB();
       }
     });
@@ -20,9 +20,9 @@ db.open(function(err, db) {
 });
 
 exports.findAll = function(req, res) {
-  db.collection('adverts', function(err, collection) {
+  db.collection('brands', function(err, collection) {
     collection.find().toArray(function(err, items) {
-      console.log('adverts send from DB');
+      console.log('brands send from DB');
       res.send(items);
     });
   });
@@ -30,18 +30,18 @@ exports.findAll = function(req, res) {
 
 var populateDB = function() {
   var fs = require('fs');
-  var file = './server/data/adverts.json';
+  var file = './data/brands.json';
 
   fs.readFile(file, 'utf8', function(err, data) {
     if (err) {
       throw err;
     }
-    var adverts = JSON.parse(data);
-    db.collection('adverts', function(err, collection) {
+    var brands = JSON.parse(data);
+    db.collection('brands', function(err, collection) {
       if (err) {
         throw err;
       }
-      collection.insert(adverts, {safe: true}, function(err, result) {
+      collection.insert(brands, {safe: true}, function(err, result) {
         if (err) {
           throw err;
         }

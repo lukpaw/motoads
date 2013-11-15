@@ -1,34 +1,28 @@
-module.exports = function(config){
-    config.set({
-    basePath : '../',
-
-    files : [
-      'app/lib/angular/angular.js',
-      'app/lib/angular/angular-*.js',
-      'app/lib/ui-bootstrap/ui-bootstrap-*.js',
-      'app/lib/angular/angular-mocks.js',
-      'app/js/**/*.js',
+module.exports = function(config) {
+  config.set({
+    basePath: '../',
+    files: [
+      'public/lib/angular/angular.js',
+      'public/lib/angular/angular-*.js',
+      'public/lib/ui-bootstrap/ui-bootstrap-*.js',
+      'public/lib/angular/angular-mocks.js',
+      'public/js/**/*.js',
       'test/unit/**/*.js'
     ],
-
-    exclude: ['app/lib/angular/angular-scenario.js'],
-
-    autoWatch : true,
-
+    exclude: ['public/lib/angular/angular-scenario.js'],
+    autoWatch: true,
     frameworks: ['jasmine'],
-
-    browsers : ['Chrome'],
-
-    plugins : [
+    browsers: ['Chrome'],
+    plugins: [
       'karma-junit-reporter',
       'karma-chrome-launcher',
       'karma-firefox-launcher',
       'karma-jasmine'
     ],
-
-    junitReporter : {
+    junitReporter: {
       outputFile: 'test_out/unit.xml',
       suite: 'unit'
     }
 
-});};
+  });
+};

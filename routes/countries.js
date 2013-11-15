@@ -30,7 +30,7 @@ exports.findAll = function(req, res) {
 
 var populateDB = function() {
   var fs = require('fs');
-  var file = './server/data/countries.json';
+  var file = './data/countries.json';
 
   fs.readFile(file, 'utf8', function(err, data) {
     if (err) {

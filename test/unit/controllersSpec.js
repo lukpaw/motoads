@@ -58,9 +58,9 @@ describe('MotoAds controllers', function() {
 
     beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, $filter) {
       $httpBackend = _$httpBackend_;
-      $httpBackend.expectGET('data/brands.json').respond(BRANDS_RESPONSE);
-      $httpBackend.expectGET('data/countries.json').respond(COUNTRIES_RESPONSE);
-      $httpBackend.expectGET('data/adverts.json').respond(ADVERTS_RESPONSE);
+      $httpBackend.expectGET('/api/brands').respond(BRANDS_RESPONSE);
+      $httpBackend.expectGET('/api/countries').respond(COUNTRIES_RESPONSE);
+      $httpBackend.expectGET('/api/adverts').respond(ADVERTS_RESPONSE);
 
       orderByFilter = $filter('orderBy');
 

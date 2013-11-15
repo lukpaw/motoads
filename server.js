@@ -7,18 +7,13 @@ var adverts = require('./routes/adverts');
 
 var app = express();
 
-var allowCrossDomain = function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
-};
-
 app.configure(function() {
   app.set('port', process.env.PORT || 3000);
   app.use(express.logger('dev'));  /* 'default', 'short', 'tiny', 'dev' */
-  app.use(express.bodyParser()),
-          app.use(allowCrossDomain);
+  app.use(express.bodyParser());
   app.use(express.static(path.join(__dirname, 'public')));
+  // TODO should be created separate test server
+  app.use('/test', express.static(path.join(__dirname, 'test')));
 });
 
 app.get('/api/brands', brands.findAll);
