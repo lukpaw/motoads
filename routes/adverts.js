@@ -28,6 +28,21 @@ exports.findAll = function(req, res) {
   });
 };
 
+exports.add = function(req, res) {
+  var advert = req.body;
+  console.log('Adding advert: ' + JSON.stringify(advert));
+  db.collection('adverts', function(err, collection) {
+    collection.insert(advert, {safe: true}, function(err, result) {
+      if (err) {
+        res.send({'error': 'An error has occurred'});
+      } else {
+        console.log('Success: ' + JSON.stringify(result[0]));
+        res.send(result[0]);
+      }
+    });
+  });
+};
+
 var populateDB = function() {
   var fs = require('fs');
   var file = './data/adverts.json';

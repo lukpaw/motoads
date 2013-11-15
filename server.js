@@ -18,7 +18,13 @@ app.configure(function() {
 
 app.get('/api/brands', brands.findAll);
 app.get('/api/countries', countries.findAll);
+
 app.get('/api/adverts', adverts.findAll);
+//app.get('/api/adverts/:id', adverts.findById);
+app.post('/api/adverts', adverts.add);
+//app.put('/api/adverts/:id', adverts.update);
+//app.delete('/api/adverts/:id', adverts.delete);
+
 
 http.createServer(app).listen(app.get('port'), function() {
   console.log("Express server listening on port " + app.get('port'));

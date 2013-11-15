@@ -8,7 +8,7 @@ motoAdsApp.controller('NavbarController', function NavbarController($scope, $loc
 
 });
 
-motoAdsApp.controller('AdvertsController', ['$scope', 'Brand', 'Country', 'Advert', 
+motoAdsApp.controller('AdvertsController', ['$scope', 'Brand', 'Country', 'Advert',
   function($scope, Brand, Country, Advert) {
     $scope.oneAtATime = true;
 
@@ -88,12 +88,13 @@ motoAdsApp.controller('AdvertsController', ['$scope', 'Brand', 'Country', 'Adver
         }
         $scope.adverts.push(row);
       });
-    };
+    }
+    ;
 
   }]);
 
-motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Advert', 
-  function($scope, Brand, Country) {
+motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Advert',
+  function($scope, Brand, Country, Advert) {
     $scope.brands = Brand.query();
 
     $scope.countries = Country.query();
@@ -103,13 +104,24 @@ motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Adv
       model: null,
       year: 2010,
       price: 10000,
+      imageUrl: "img/audi_a1_1.jpg",
       country: null,
       region: null
     };
 
     $scope.add = function() {
-      alert('User added!');
-      // TODO: Store it!
+      var newAdvert = {
+        brandName: $scope.newAdvert.brand.name,
+        modelName: $scope.newAdvert.model.name,
+        year: $scope.newAdvert.year,
+        price: $scope.newAdvert.price,
+        imageUrl: $scope.newAdvert.imageUrl,
+        countryName: $scope.newAdvert.country.name,
+        regionName: $scope.newAdvert.region.name
+      };
+
+      Advert.save(newAdvert);
+      alert('New advert added!');
       $scope.reset();
     };
 

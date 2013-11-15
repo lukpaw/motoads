@@ -38,6 +38,14 @@
         <span class="ma-form-msg-error help-inline" ng-show="advertForm.price.$dirty && advertForm.price.$invalid">Invalid price</span>
       </div>
     </div>
+    
+    <div class="control-group">
+      <label class="control-label">Image URL</label>
+      <div class="controls">
+        <input type="text" ma-currency name="price" ng-model="newAdvert.imageUrl" required>
+        <span class="ma-form-msg-error help-inline" ng-show="advertForm.imageUrl.$dirty && advertForm.imageUrl.$invalid">Invalid image URL</span>
+      </div>
+    </div>    
 
     <div class="control-group">
       <label class="control-label">Country</label>
@@ -67,8 +75,6 @@
                 class="btn btn-primary">Save</button>
       </div>
     </div>
-
-    <div class="muted">Notice! Images upload not supported yet.</div>
 
   </form>
 
