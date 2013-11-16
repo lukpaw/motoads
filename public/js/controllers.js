@@ -225,8 +225,6 @@ motoAdsApp.controller('EditAdvertController', ['$scope', '$routeParams', 'Brand'
         countryName: $scope.editAdvert.country.name,
         regionName: $scope.editAdvert.region.name
       };
-      
-      $scope.advertId = $scope.editAdvert._id;
 
       Advert.update(editAdvert, function() {
         previousAdvert = angular.copy($scope.editAdvert);

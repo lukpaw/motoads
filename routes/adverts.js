@@ -58,6 +58,7 @@ exports.update = function(req, res) {
   var advert = req.body;
   console.log('Updating advert: ' + id);
   console.log(JSON.stringify(advert));
+  delete advert._id;
   db.collection('adverts', function(err, collection) {
     collection.update({'_id': new BSON.ObjectID(id)}, advert, {safe: true}, function(err, result) {
       if (err) {
@@ -69,7 +70,7 @@ exports.update = function(req, res) {
       }
     });
   });
-}
+};
 
 exports.remove = function(req, res) {
   var id = req.params.id;
