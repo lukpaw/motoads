@@ -134,11 +134,11 @@ motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Adv
 
       Advert.save(newAdvert, function() {
         alert('New advert added');
-        $scope.reset();
+        $scope.resetAdvert();
       });
     };
 
-    $scope.reset = function() {
+    $scope.resetAdvert = function() {
       $scope.newAdvert = angular.copy(emptyAdvert);
       if ($scope.advertForm) {
         // TODO Uncomment in angular 1.1.1 or higher
@@ -150,7 +150,7 @@ motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Adv
       return angular.equals($scope.newAdvert, emptyAdvert);
     };
 
-    $scope.reset();
+    $scope.resetAdvert();
   }]);
 
 motoAdsApp.controller('EditAdvertController', ['$scope', '$routeParams', 'Brand', 'Country', 'Advert',
@@ -236,5 +236,11 @@ motoAdsApp.controller('EditAdvertController', ['$scope', '$routeParams', 'Brand'
       return angular.equals($scope.editAdvert, previousAdvert);
     };
     
-    // TODO Add reset button to retrieve data from previousAdvert
+    $scope.resetAdvert = function() {
+      $scope.editAdvert = angular.copy(previousAdvert);
+      if ($scope.advertForm) {
+        // TODO Uncomment in angular 1.1.1 or higher
+        //$scope.advertForm.$setPristne();
+      }
+    };    
   }]);

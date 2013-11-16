@@ -76,6 +76,8 @@
 
     <div class="control-group">
       <div class="controls">
+        <button ng-click="resetAdvert()" ng-disabled="isUnchanged()" 
+                class="btn btn-primary">Reset</button>        
         <button ng-click="updateAdvert()" ng-disabled="advertForm.$invalid || isUnchanged()"
                 class="btn btn-primary">Update</button>
       </div>
