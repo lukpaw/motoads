@@ -150,7 +150,6 @@ motoAdsApp.controller('EditAdvertController', ['$scope', '$routeParams', 'Brand'
     $scope.brands = Brand.query();
 
     function currentBrandAndModel(brandName, modelName) {
-      console.log(brandName + ' ' + modelName);
       angular.forEach($scope.brands, function(item) {
         if (item.name === brandName) {
           $scope.brand = item;
@@ -160,7 +159,6 @@ motoAdsApp.controller('EditAdvertController', ['$scope', '$routeParams', 'Brand'
 
       angular.forEach($scope.brand.models, function(item) {
         if (item.name === modelName) {
-          console.log(item.name + ' ' + modelName);
           $scope.model = item;
           return 1;
         }
