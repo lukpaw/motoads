@@ -47,10 +47,10 @@
             <div class="ma-chosen-filter-div">
               <span ng-show="filter.modelName">{{filter.brandName}} {{filter.modelName}}
                 <i class="icon-remove-sign icon-white" ng-click="filter.brandName = null;
-                filter.modelName = null"></i></span>
+                  filter.modelName = null"></i></span>
               <span ng-show="filter.country.name">{{filter.country.name}}
                 <i class="icon-remove-sign icon-white" ng-click="filter.country = null;
-                filter.region = null"></i></span>
+                  filter.region = null"></i></span>
               <span ng-show="filter.region.name">{{filter.region.name}}
                 <i class="icon-remove-sign icon-white" ng-click="filter.region = null"></i></span>
               <span ng-show="filter.yearFrom">{{filter.yearFrom}}
@@ -89,6 +89,7 @@
           <th>Model</th>
           <th>Year</th>
           <th>Price ($)</th>
+          <th>Operation</th>
         </tr>        
         <tr class="ma-advert-table-row" ng-repeat="advert in adverts| orderBy:sortByCol.key">
           <td><a href="#/"><img class="img-rounded"
@@ -98,6 +99,10 @@
           <td>{{advert.modelName}}</td>
           <td>{{advert.year}}</td>
           <td>{{advert.price}}</td>
+          <td>
+            <input type="hidden" value="{{advert._id}}">
+            <a href="" ng-click="editAdvert(advert._id)">Edit</a>
+            <br/><a href="" ng-click="removeAdvert(advert._id)">Remove</a></td>
         </tr>
       </table>
     </div>

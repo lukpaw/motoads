@@ -11,5 +11,7 @@ motoAdsServices.factory('Country', ['$resource', function($resource) {
   }]);
 
 motoAdsServices.factory('Advert', ['$resource', function($resource) {
-    return $resource('/api/adverts/:advertId', {}, {});
+    return $resource('/api/adverts/:advertId', {}, {
+       update: {method:'PUT', params: {advertId: '@advertId'}}
+    });
   }]);

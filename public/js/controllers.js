@@ -8,8 +8,8 @@ motoAdsApp.controller('NavbarController', function NavbarController($scope, $loc
 
 });
 
-motoAdsApp.controller('AdvertsController', ['$scope', 'Brand', 'Country', 'Advert',
-  function($scope, Brand, Country, Advert) {
+motoAdsApp.controller('AdvertsController', ['$scope', '$window', 'Brand', 'Country', 'Advert',
+  function($scope, $window, Brand, Country, Advert) {
     $scope.oneAtATime = true;
 
     $scope.brands = Brand.query();
@@ -89,7 +89,17 @@ motoAdsApp.controller('AdvertsController', ['$scope', 'Brand', 'Country', 'Adver
         $scope.adverts.push(row);
       });
     }
-    ;
+
+    $scope.removeAdvert = function(_advertId) {
+      Advert.remove({advertId: _advertId}, function() {
+        alert('Advert removed');
+        // TODO refresh page
+      });
+    };
+
+    $scope.editAdvert = function(_advertId) {
+      $window.location = "#/editAdvert/" + _advertId;
+    };
 
   }]);
 
@@ -99,7 +109,8 @@ motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Adv
 
     $scope.countries = Country.query();
 
-    $scope.emptyAdvert = {
+    var emptyAdvert = {
+      _id: null,
       brand: null,
       model: null,
       year: 2010,
@@ -109,8 +120,9 @@ motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Adv
       region: null
     };
 
-    $scope.add = function() {
+    $scope.addAdvert = function() {
       var newAdvert = {
+        _id: null,
         brandName: $scope.newAdvert.brand.name,
         modelName: $scope.newAdvert.model.name,
         year: $scope.newAdvert.year,
@@ -120,13 +132,14 @@ motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Adv
         regionName: $scope.newAdvert.region.name
       };
 
-      Advert.save(newAdvert);
-      alert('New advert added!');
-      $scope.reset();
+      Advert.save(newAdvert, function() {
+        alert('New advert added');
+        $scope.reset();
+      });
     };
 
     $scope.reset = function() {
-      $scope.newAdvert = angular.copy($scope.emptyAdvert);
+      $scope.newAdvert = angular.copy(emptyAdvert);
       if ($scope.advertForm) {
         // TODO Uncomment in angular 1.1.1 or higher
         //$scope.advertForm.$setPristne();
@@ -134,8 +147,96 @@ motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Adv
     };
 
     $scope.isUnchanged = function() {
-      return angular.equals($scope.newAdvert, $scope.emptyAdvert);
+      return angular.equals($scope.newAdvert, emptyAdvert);
     };
 
     $scope.reset();
+  }]);
+
+motoAdsApp.controller('EditAdvertController', ['$scope', '$routeParams', 'Brand', 'Country', 'Advert',
+  function($scope, $routeParams, Brand, Country, Advert) {
+    $scope.brands = Brand.query();
+    var brand = null;
+    var model = null;
+
+    function currentBrandAndModel(brandName, modelName) {
+      angular.forEach($scope.brands, function(item) {
+        if (item.name === brandName) {
+          brand = item;
+          return 1;
+        }
+      });
+
+      angular.forEach(brand.models, function(item) {
+        if (item.name === modelName) {
+          model = item;
+          return 1;
+        }
+      });
+    }
+
+    $scope.countries = Country.query();
+    var country = null;
+    var region = null;
+
+    function currentCountryAndRegion(countryName, regionName) {
+      angular.forEach($scope.countries, function(item) {
+        if (item.name === countryName) {
+          country = item;
+          return 1;
+        }
+      });
+
+      angular.forEach(country.regions, function(item) {
+        if (item.name === regionName) {
+          region = item;
+          return 1;
+        }
+      });
+    }
+
+    var previousAdvert = null;
+    var retrieveAdvert = Advert.get({advertId: $routeParams.advertId}, function() {
+      currentBrandAndModel(retrieveAdvert.brandName, retrieveAdvert.modelName);
+      currentCountryAndRegion(retrieveAdvert.countryName, retrieveAdvert.regionName);
+
+      $scope.editAdvert = {
+        _id: retrieveAdvert._id,
+        brand: brand,
+        model: model,
+        year: retrieveAdvert.year,
+        price: retrieveAdvert.price,
+        imageUrl: retrieveAdvert.imageUrl,
+        country: country,
+        region: region
+      };
+      
+      previousAdvert = angular.copy($scope.editAdvert);
+    });
+
+    $scope.updateAdvert = function() {
+      var editAdvert = {
+        _id: $scope.editAdvert._id,
+        brandName: $scope.editAdvert.brand.name,
+        modelName: $scope.editAdvert.model.name,
+        year: $scope.editAdvert.year,
+        price: $scope.editAdvert.price,
+        imageUrl: $scope.editAdvert.imageUrl,
+        countryName: $scope.editAdvert.country.name,
+        regionName: $scope.editAdvert.region.name
+      };
+      
+      $scope.advertId = $scope.editAdvert._id;
+
+      Advert.update(editAdvert, function() {
+        previousAdvert = angular.copy($scope.editAdvert);
+        alert('Advert updated');
+      });
+    };
+
+    $scope.isUnchanged = function() {
+      return angular.equals($scope.editAdvert, previousAdvert);
+    };
+    
+    // TODO Add reset button to retrieve data from previousAdvert
   }]);

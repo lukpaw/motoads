@@ -12,5 +12,9 @@ motoAdsApp.config(['$routeProvider',
             when('/addAdvert', {
               controller: 'AddAdvertController',
               templateUrl: 'views/addAdvert.html'
+            }).
+            when('/editAdvert/:advertId', {
+              controller: 'EditAdvertController',
+              templateUrl: 'views/editAdvert.html'
             });
   }]);

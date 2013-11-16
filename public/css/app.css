@@ -19,7 +19,7 @@
   height: 120px;
 }
 
-.ma-add-advert-form button {
+.ma-add-advert-form button, .ma-edit-advert-form button {
   width: 120px;
 }
 
