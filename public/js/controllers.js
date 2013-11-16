@@ -90,8 +90,10 @@ motoAdsApp.controller('AdvertsController', ['$scope', '$window', 'Brand', 'Count
       });
     }
 
-    $scope.removeAdvert = function(_advertId) {
-      Advert.remove({advertId: _advertId}, function() {
+    $scope.removeAdvert = function(idx) {
+      var removeAdvert = $scope.adverts[idx];
+      Advert.remove({advertId: removeAdvert._id}, function() {
+        $scope.adverts.splice(idx, 1);
         alert('Advert removed');
         // TODO refresh page
       });
@@ -200,12 +202,12 @@ motoAdsApp.controller('EditAdvertController', ['$scope', '$routeParams', 'Brand'
     $scope.isUnchanged = function() {
       return angular.equals($scope.editAdvert, previousAdvert);
     };
-    
+
     $scope.resetAdvert = function() {
       $scope.editAdvert = angular.copy(previousAdvert);
       if ($scope.advertForm) {
         // TODO Uncomment in angular 1.1.1 or higher
         //$scope.advertForm.$setPristne();
       }
-    };    
+    };
   }]);
