@@ -110,35 +110,27 @@ motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Adv
     $scope.countries = Country.query();
 
     var emptyAdvert = {
-      _id: null,
-      brand: null,
-      model: null,
+      brandName: null,
+      modelName: null,
       year: 2010,
       price: 10000,
       imageUrl: "img/audi_a1_1.jpg",
-      country: null,
-      region: null
+      countryName: null,
+      regionName: null
     };
 
     $scope.addAdvert = function() {
-      var newAdvert = {
-        _id: null,
-        brandName: $scope.newAdvert.brand.name,
-        modelName: $scope.newAdvert.model.name,
-        year: $scope.newAdvert.year,
-        price: $scope.newAdvert.price,
-        imageUrl: $scope.newAdvert.imageUrl,
-        countryName: $scope.newAdvert.country.name,
-        regionName: $scope.newAdvert.region.name
-      };
-
-      Advert.save(newAdvert, function() {
+      Advert.save($scope.newAdvert, function() {
         alert('New advert added');
         $scope.resetAdvert();
       });
     };
 
     $scope.resetAdvert = function() {
+      $scope.brand = null;
+      $scope.model = null;
+      $scope.country = null;
+      $scope.region = null;
       $scope.newAdvert = angular.copy(emptyAdvert);
       if ($scope.advertForm) {
         // TODO Uncomment in angular 1.1.1 or higher
@@ -156,77 +148,52 @@ motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Adv
 motoAdsApp.controller('EditAdvertController', ['$scope', '$routeParams', 'Brand', 'Country', 'Advert',
   function($scope, $routeParams, Brand, Country, Advert) {
     $scope.brands = Brand.query();
-    var brand = null;
-    var model = null;
 
     function currentBrandAndModel(brandName, modelName) {
+      console.log(brandName + ' ' + modelName);
       angular.forEach($scope.brands, function(item) {
         if (item.name === brandName) {
-          brand = item;
+          $scope.brand = item;
           return 1;
         }
       });
 
-      angular.forEach(brand.models, function(item) {
+      angular.forEach($scope.brand.models, function(item) {
         if (item.name === modelName) {
-          model = item;
+          console.log(item.name + ' ' + modelName);
+          $scope.model = item;
           return 1;
         }
       });
     }
 
     $scope.countries = Country.query();
-    var country = null;
-    var region = null;
 
     function currentCountryAndRegion(countryName, regionName) {
       angular.forEach($scope.countries, function(item) {
         if (item.name === countryName) {
-          country = item;
+          $scope.country = item;
           return 1;
         }
       });
 
-      angular.forEach(country.regions, function(item) {
+      angular.forEach($scope.country.regions, function(item) {
         if (item.name === regionName) {
-          region = item;
+          $scope.region = item;
           return 1;
         }
       });
     }
 
     var previousAdvert = null;
-    var retrieveAdvert = Advert.get({advertId: $routeParams.advertId}, function() {
-      currentBrandAndModel(retrieveAdvert.brandName, retrieveAdvert.modelName);
-      currentCountryAndRegion(retrieveAdvert.countryName, retrieveAdvert.regionName);
-
-      $scope.editAdvert = {
-        _id: retrieveAdvert._id,
-        brand: brand,
-        model: model,
-        year: retrieveAdvert.year,
-        price: retrieveAdvert.price,
-        imageUrl: retrieveAdvert.imageUrl,
-        country: country,
-        region: region
-      };
-      
+    $scope.editAdvert = Advert.get({advertId: $routeParams.advertId}, function() {
+      currentBrandAndModel($scope.editAdvert.brandName, $scope.editAdvert.modelName);
+      currentCountryAndRegion($scope.editAdvert.countryName, $scope.editAdvert.regionName);
       previousAdvert = angular.copy($scope.editAdvert);
     });
 
     $scope.updateAdvert = function() {
-      var editAdvert = {
-        _id: $scope.editAdvert._id,
-        brandName: $scope.editAdvert.brand.name,
-        modelName: $scope.editAdvert.model.name,
-        year: $scope.editAdvert.year,
-        price: $scope.editAdvert.price,
-        imageUrl: $scope.editAdvert.imageUrl,
-        countryName: $scope.editAdvert.country.name,
-        regionName: $scope.editAdvert.region.name
-      };
-
-      Advert.update(editAdvert, function() {
+      Advert.update($scope.editAdvert, function() {
         previousAdvert = angular.copy($scope.editAdvert);
         alert('Advert updated');
       });

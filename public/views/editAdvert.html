@@ -13,7 +13,7 @@
     <div class="control-group">
       <label class="control-label">Brand</label>
       <div class="controls">
-        <select name="brand" ng-model="editAdvert.brand" required ng-options="b.name for b in brands">
+        <select name="brand" ng-model="brand" ng-change="editAdvert.brandName = brand.name" required ng-options="b.name for b in brands">
           <option value=""></option>
         </select>
         <span class="ma-form-msg-error help-inline" ng-show="advertForm.brand.$dirty && advertForm.brand.$invalid">Invalid brand</span>
@@ -23,7 +23,7 @@
     <div class="control-group">
       <label class="control-label">Model</label>
       <div class="controls">
-        <select name="model" ng-model="editAdvert.model" required ng-options="m.name for m in editAdvert.brand.models">
+        <select name="model" ng-model="model" ng-change="editAdvert.modelName = model.name" required ng-options="m.name for m in brand.models">
           <option value=""></option>
         </select>
         <span class="ma-form-msg-error help-inline" ng-show="advertForm.model.$dirty && advertForm.model.$invalid">Invalid model</span>
@@ -57,7 +57,7 @@
     <div class="control-group">
       <label class="control-label">Country</label>
       <div class="controls">
-        <select name="country" ng-model="editAdvert.country" required ng-options="c.name for c in countries">
+        <select name="country" ng-model="country" ng-change="editAdvert.countryName = country.name" required ng-options="c.name for c in countries">
           <option value=""></option>
         </select>
         <span class="ma-form-msg-error help-inline" ng-show="advertForm.country.$dirty && advertForm.country.$invalid">Invalid country</span>
@@ -67,7 +67,7 @@
     <div class="control-group">
       <label class="control-label">Region</label>
       <div class="controls">
-        <select name="region" ng-model="editAdvert.region" required ng-options="r.name for r in editAdvert.country.regions">
+        <select name="region" ng-model="region" ng-change="editAdvert.regionName = region.name" required ng-options="r.name for r in country.regions">
           <option value=""></option>
         </select>
         <span class="ma-form-msg-error help-inline" ng-show="advertForm.region.$dirty && advertForm.region.$invalid">Invalid region</span>
