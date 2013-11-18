@@ -95,7 +95,6 @@ motoAdsApp.controller('AdvertsController', ['$scope', '$window', 'Brand', 'Count
       Advert.remove({advertId: removeAdvert._id}, function() {
         $scope.adverts.splice(idx, 1);
         alert('Advert removed');
-        // TODO refresh page
       });
     };
 
@@ -147,8 +146,8 @@ motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Adv
     $scope.resetAdvert();
   }]);
 
-motoAdsApp.controller('EditAdvertController', ['$scope', '$routeParams', 'Brand', 'Country', 'Advert',
-  function($scope, $routeParams, Brand, Country, Advert) {
+motoAdsApp.controller('EditAdvertController', ['$scope', '$routeParams', '$window', 'Brand', 'Country', 'Advert',
+  function($scope, $routeParams, $window, Brand, Country, Advert) {
     $scope.brands = Brand.query();
 
     function currentBrandAndModel(brandName, modelName) {
@@ -196,6 +195,7 @@ motoAdsApp.controller('EditAdvertController', ['$scope', '$routeParams', 'Brand'
       Advert.update($scope.editAdvert, function() {
         previousAdvert = angular.copy($scope.editAdvert);
         alert('Advert updated');
+        $window.location = "#/";
       });
     };
 
