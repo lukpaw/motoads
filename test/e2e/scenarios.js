@@ -5,7 +5,7 @@ describe('MotoAds App', function() {
   describe('Adverts view', function() {
 
     beforeEach(function() {
-      browser().navigateTo('../../index.html#/');
+      browser().navigateTo('../../#/');
     });
 
     it('should filter on brand and model link click', function() {
