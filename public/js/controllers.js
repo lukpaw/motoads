@@ -104,8 +104,8 @@ motoAdsApp.controller('AdvertsController', ['$scope', '$window', 'Brand', 'Count
 
   }]);
 
-motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Advert',
-  function($scope, Brand, Country, Advert) {
+motoAdsApp.controller('AddAdvertController', ['$scope', '$window', 'Brand', 'Country', 'Advert',
+  function($scope, $window, Brand, Country, Advert) {
     $scope.brands = Brand.query();
 
     $scope.countries = Country.query();
@@ -123,7 +123,9 @@ motoAdsApp.controller('AddAdvertController', ['$scope', 'Brand', 'Country', 'Adv
     $scope.addAdvert = function() {
       Advert.save($scope.newAdvert, function() {
         alert('New advert added');
-        $scope.resetAdvert();
+        // if not return to #/
+        //$scope.resetAdvert();
+        $window.location = "#/";
       });
     };
 
@@ -193,7 +195,8 @@ motoAdsApp.controller('EditAdvertController', ['$scope', '$routeParams', '$windo
 
     $scope.updateAdvert = function() {
       Advert.update($scope.editAdvert, function() {
-        previousAdvert = angular.copy($scope.editAdvert);
+        // if not return to #/
+        //previousAdvert = angular.copy($scope.editAdvert);
         alert('Advert updated');
         $window.location = "#/";
       });

@@ -1,6 +1,6 @@
 'use strict';
 
-var motoAdsApp = angular.module('motoAdsApp', ['ui.bootstrap', 'motoAdsServices']);
+var motoAdsApp = angular.module('motoAdsApp', ['ngRoute', 'ui.bootstrap', 'motoAdsServices']);
 
 motoAdsApp.config(['$routeProvider',
   function($routeProvider) {
