@@ -2,7 +2,7 @@ module.exports = function(config) {
   config.set({
     basePath: '../',
     files: [
-      'test/e2e/**/*.js'
+      'test/e2e/**/karma-*.js'
     ],
     autoWatch: false,
     browsers: ['Chrome'],
@@ -22,6 +22,5 @@ module.exports = function(config) {
       outputFile: 'test_out/e2e.xml',
       suite: 'e2e'
     }
-
   });
 };
