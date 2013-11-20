@@ -136,8 +136,7 @@ motoAdsApp.controller('AddAdvertController', ['$scope', '$window', 'Brand', 'Cou
       $scope.region = null;
       $scope.newAdvert = angular.copy(emptyAdvert);
       if ($scope.advertForm) {
-        // TODO Uncomment in angular 1.1.1 or higher
-        //$scope.advertForm.$setPristne();
+        $scope.advertForm.$setPristine();
       }
     };
 
@@ -209,8 +208,7 @@ motoAdsApp.controller('EditAdvertController', ['$scope', '$routeParams', '$windo
     $scope.resetAdvert = function() {
       $scope.editAdvert = angular.copy(previousAdvert);
       if ($scope.advertForm) {
-        // TODO Uncomment in angular 1.1.1 or higher
-        //$scope.advertForm.$setPristne();
+        $scope.advertForm.$setPristine();
       }
     };
   }]);
