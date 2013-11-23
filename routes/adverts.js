@@ -9,10 +9,10 @@ db = new Db('motoads', server);
 
 db.open(function(err, db) {
   if (!err) {
-    console.log("Connected to 'motoads' database");
+    console.log("Connected to motoads database");
     db.collection('adverts', {strict: true}, function(err, collection) {
       if (err) {
-        console.log("The 'adverts' collection doesn't exist. Creating it with sample data...");
+        console.log("The adverts collection does not exist. Creating it with sample data...");
         populateDB();
       }
     });
