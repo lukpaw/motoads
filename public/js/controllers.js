@@ -101,7 +101,39 @@ motoAdsApp.controller('AdvertsController', ['$scope', '$window', 'Brand', 'Count
     $scope.editAdvert = function(_advertId) {
       $window.location = "#/editAdvert/" + _advertId;
     };
+  }]);
 
+motoAdsApp.controller('CommentController', ['$scope',
+  function($scope) {
+    $scope.content = null;
+    $scope.previewModeOn = false;
+    $scope.commentModeOn = false;
+
+    $scope.isUnchanged = function() {
+      return angular.isUndefined($scope.content) || angular.equals($scope.content, null);
+    };
+
+    $scope.activateComment = function() {
+      $scope.content = null;
+      $scope.previewModeOn = false;
+      $scope.commentModeOn = true;
+    };
+
+   $scope.togglePreviewMode = function() {
+      $scope.preview = $scope.content;
+      $scope.previewModeOn = !$scope.previewModeOn;
+    };
+
+    $scope.cancelComment = function() {
+      $scope.commentModeOn = false;
+      $scope.content = null;
+    };
+    
+    $scope.addComment = function() {
+      alert('Thanks for your comment');
+      $scope.preview = $scope.content;
+      $scope.previewModeOn = true;
+    };    
   }]);
 
 motoAdsApp.controller('AddAdvertController', ['$scope', '$window', 'Brand', 'Country', 'Advert',

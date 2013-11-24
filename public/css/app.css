@@ -19,6 +19,25 @@
   height: 120px;
 }
 
+.ma-advert-comment-row {
+  width: 100%;
+}
+
+.ma-advert-comment {
+  width: 100%;
+}
+
+.ma-advert-comment textarea {
+  width: 96%;
+}
+
+.ma-advert-comment-preview {
+  padding: 5px;
+  margin: 5px;
+  min-height: 2em;
+  border: 1px gainsboro solid;
+}
+
 .ma-add-advert-form button, .ma-edit-advert-form button {
   width: 120px;
 }

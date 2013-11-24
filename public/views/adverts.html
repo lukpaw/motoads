@@ -82,28 +82,55 @@
         </div>
       </div>
 
-      <table class="table table-striped ma-advert-table">
-        <tr class="ma-advert-table-headers">
-          <th>Image/Country/Region</th>
-          <th>Brand</th>
-          <th>Model</th>
-          <th>Year</th>
-          <th>Price ($)</th>
-          <th>Operation</th>
-        </tr>        
-        <tr class="ma-advert-table-row" ng-repeat="advert in adverts| orderBy:sortByCol.key">
-          <td><a href="#/"><img class="img-rounded"
-                                ng-src="{{advert.imageUrl}}"></a><br/>
-            <span>{{advert.countryName}}, {{advert.regionName}}</span></td>
-          <td>{{advert.brandName}}</td>
-          <td>{{advert.modelName}}</td>
-          <td>{{advert.year}}</td>
-          <td>{{advert.price}}</td>
-          <td>
-            <input type="hidden" value="{{advert._id}}">
-            <a href="" ng-click="editAdvert(advert._id)">Edit</a>
-            <br/><a href="" ng-click="removeAdvert($index)">Remove</a></td>
-        </tr>
+      <table class="table ma-advert-table">
+        <thead>
+          <tr class="ma-advert-table-headers">
+            <th>Image/Country/Region</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Price ($)</th>
+            <th>Operation</th>
+          </tr>
+        </thead>
+        <tbody ng-controller="CommentController" ng-repeat="advert in adverts| orderBy:sortByCol.key">
+          <tr class="ma-advert-table-row">
+            <td><a href="#/"><img class="img-rounded"
+                                  ng-src="{{advert.imageUrl}}"></a><br/>
+              <span>{{advert.countryName}}, {{advert.regionName}}</span></td>
+            <td>{{advert.brandName}}</td>
+            <td>{{advert.modelName}}</td>
+            <td>{{advert.year}}</td>
+            <td>{{advert.price}}</td>
+            <td>
+              <input type="hidden" value="{{advert._id}}">
+              <a href="" ng-click="editAdvert(advert._id)">Edit</a>
+              <br/><a href="" ng-click="removeAdvert($index)">Remove</a>
+              <br/><a href="" ng-click="activateComment()">Comment</a></td>
+          </tr>
+          <tr class="ma-advert-commentr-row" ng-show="commentModeOn">
+            <td colspan="6">
+              <div class="ma-advert-comment">
+                <form name="commentForm" novalidate>
+                  <div ng-hide="previewModeOn">
+                    <textarea tabindex="0" ng-hide="commentPreviewOn" ng-model="content" required placeholder="Write a comment..."></textarea>
+                  </div>
+                  <div class="ma-advert-comment-preview" ng-show="previewModeOn">{{preview}}</div>
+                  <div class="control-group">
+                    <div class="controls">
+                      <button ng-click="togglePreviewMode()" ng-disabled="isUnchanged()"
+                              class="btn btn-info btn-small">{{ previewModeOn && 'Edit' || 'Preview' }}</button>               
+                      <button ng-click="addComment()" ng-disabled="commentForm.$invalid || isUnchanged()"
+                              class="btn btn-success btn-small">Save</button>
+                      <button ng-click="cancelComment()"
+                              class="btn btn-small">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
 
