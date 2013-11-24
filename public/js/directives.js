@@ -17,3 +17,40 @@ motoAdsApp.directive('maCurrency', function() {
     }
   };
 });
+
+motoAdsApp.directive('commentForm', function() {
+  return {
+    restrict: "E",
+    replace: true,
+    scope: true,
+    templateUrl: "views/commentForm.html",
+    link: function(scope) {
+      scope.content = null;
+      scope.previewModeOn = false;
+
+      scope.isUnchanged = function() {
+        return angular.isUndefined(scope.content) || angular.equals(scope.content, null);
+      };
+
+      scope.activateComment = function() {
+        scope.content = null;
+        scope.previewModeOn = false;
+      };
+
+      scope.togglePreviewMode = function() {
+        scope.preview = scope.content;
+        scope.previewModeOn = !scope.previewModeOn;
+      };
+
+      scope.cancelComment = function() {
+        scope.content = null;
+      };
+
+      scope.addComment = function() {
+        alert('Thanks for your comment');
+        scope.preview = scope.content;
+        scope.previewModeOn = true;
+      };
+    }
+  };
+});
