@@ -1,17 +1,18 @@
-
-    <div class="ma-advert-comment">
-      <form name="commentForm" novalidate>
-        <div ng-hide="previewModeOn">
-          <textarea tabindex="0" ng-hide="commentPreviewOn" ng-model="content" required placeholder="Write a comment..."></textarea>
-        </div>
-        <div class="ma-advert-comment-preview" ng-show="previewModeOn">{{preview}}</div>
-        <div class="control-group">
-          <div class="controls">
-            <button ng-click="togglePreviewMode()" ng-disabled="isUnchanged()"
-                    class="btn btn-info btn-small">{{ previewModeOn && 'Edit' || 'Preview' }}</button>               
-            <button ng-click="addComment()" ng-disabled="commentForm.$invalid || isUnchanged()"
-                    class="btn btn-success btn-small">Save</button>
-          </div>
-        </div>
-      </form>
+<div class="ma-advert-comment">
+  <form name="commentForm" novalidate>
+    <div ng-hide="previewModeOn">
+      <textarea ng-model="content" placeholder="Write a comment..."></textarea>
     </div>
+    <div class="ma-advert-comment-preview" ng-show="previewModeOn">{{preview}}</div>
+    <div class="control-group">
+      <div class="controls">
+        <button ng-click="togglePreviewMode()" ng-disabled="isUnchanged()"
+                class="btn btn-info btn-small">{{ previewModeOn && 'Edit' || 'Preview' }}</button>               
+        <button ng-click="addComment()" ng-disabled="isUnchanged()"
+                class="btn btn-success btn-small">Save</button>
+        <button ng-click="cancelComment()"
+                class="btn btn-small">Cancel</button>                      
+      </div>
+    </div>
+  </form>
+</div>

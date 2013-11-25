@@ -82,7 +82,7 @@
         </div>
       </div>
 
-      <table class="table ma-advert-table">
+      <table class="ma-advert-table">
         <thead>
           <tr class="ma-advert-table-headers">
             <th>Image/Country/Region</th>
@@ -106,11 +106,11 @@
               <input type="hidden" value="{{advert._id}}">
               <a href="" ng-click="editAdvert(advert._id)">Edit</a>
               <br/><a href="" ng-click="removeAdvert($index)">Remove</a>
-              <br/><a href="" ng-click="toggleCommentMode()">Comment</a></td>
+              <br/><a href="" ng-click="commentModeOn = true">Comment</a></td>
           </tr>
-          <tr class="ma-advert-commentr-row" ng-show="commentModeOn">
+          <tr class="ma-advert-comment-row" ng-show="commentModeOn">
             <td colspan="6">
-              <comment-form/>
+              <comment-form comment-mode-on="commentModeOn" />
             </td>
           </tr>          
         </tbody>

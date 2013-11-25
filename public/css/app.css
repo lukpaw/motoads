@@ -13,6 +13,26 @@
   padding: 3px 10px;
 }
 
+.ma-advert-table {
+  width: 100%;
+}
+
+.ma-advert-table-headers {
+}
+
+.ma-advert-table-headers th {
+  padding-bottom: 10px;
+  text-align: left;
+}
+
+.ma-advert-table-row {
+  border-top: 1px silver solid;
+}
+
+.ma-advert-table-row td {
+  padding: 10px 0;
+}
+
 .ma-advert-table img {
   margin-right: 10px;
   width: 160px;
@@ -33,9 +53,12 @@
 
 .ma-advert-comment-preview {
   padding: 5px;
-  margin: 5px;
-  min-height: 2em;
+  margin: 5px 0 10px 0;
+  min-height: 2.5em;
   border: 1px gainsboro solid;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: whitesmoke;
 }
 
 .ma-add-advert-form button, .ma-edit-advert-form button {

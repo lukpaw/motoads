@@ -106,9 +106,6 @@ motoAdsApp.controller('AdvertsController', ['$scope', '$window', 'Brand', 'Count
 motoAdsApp.controller('CommentController', ['$scope',
   function($scope) {
     $scope.commentModeOn = false;
-    $scope.toggleCommentMode = function() {
-      $scope.commentModeOn = !$scope.commentModeOn;
-    };
   }]);
 
 motoAdsApp.controller('AddAdvertController', ['$scope', '$window', 'Brand', 'Country', 'Advert',

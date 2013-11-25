@@ -22,28 +22,27 @@ motoAdsApp.directive('commentForm', function() {
   return {
     restrict: "E",
     replace: true,
-    scope: true,
+    scope: {
+      commentModeOn: '='
+    },
     templateUrl: "views/commentForm.html",
     link: function(scope) {
-      scope.content = null;
+      scope.content = '';
       scope.previewModeOn = false;
 
-      scope.isUnchanged = function() {
-        return angular.isUndefined(scope.content) || angular.equals(scope.content, null);
+      scope.cancelComment = function() {
+        scope.content = '';
+        scope.previewModeOn = false;
+        scope.commentModeOn = false;
       };
 
-      scope.activateComment = function() {
-        scope.content = null;
-        scope.previewModeOn = false;
+      scope.isUnchanged = function() {
+        return angular.isUndefined(scope.content) || angular.equals(scope.content, '');
       };
 
       scope.togglePreviewMode = function() {
         scope.preview = scope.content;
         scope.previewModeOn = !scope.previewModeOn;
-      };
-
-      scope.cancelComment = function() {
-        scope.content = null;
       };
 
       scope.addComment = function() {
