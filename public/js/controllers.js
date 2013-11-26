@@ -8,8 +8,8 @@ motoAdsApp.controller('NavbarController', function NavbarController($scope, $loc
 
 });
 
-motoAdsApp.controller('AdvertsController', ['$scope', '$window', 'Brand', 'Country', 'Advert',
-  function($scope, $window, Brand, Country, Advert) {
+motoAdsApp.controller('AdvertsController', ['$scope', '$filter', '$window', 'Brand', 'Country', 'Advert',
+  function($scope, $filter, $window, Brand, Country, Advert) {
     $scope.oneAtATime = true;
 
     $scope.brands = Brand.query();
@@ -23,6 +23,14 @@ motoAdsApp.controller('AdvertsController', ['$scope', '$window', 'Brand', 'Count
         "key": "price",
         "name": "Price"
       }];
+
+    $scope.sortAdverts = function() {
+      if ($scope.sortByCol) {
+        console.log('$scope.sortByCol.key = ' + $scope.sortByCol.key);
+        var unsortedAdverts = $scope.adverts;
+        $scope.adverts = $filter('orderBy')(unsortedAdverts, $scope.sortByCol.key);
+      }
+    }
 
     $scope.adverts = [];
     var allAdverts = Advert.query(filterAdverts);

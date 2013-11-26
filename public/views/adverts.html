@@ -75,7 +75,7 @@
         <div class="offset3 span5">
           <form class="form-inline">
             <label>Sort by</label>
-            <select ng-model="sortByCol" ng-options="s.name for s in sortByCols">
+            <select ng-model="sortByCol" ng-change="sortAdverts()" ng-options="s.name for s in sortByCols">
               <option value=""></option>
             </select>
           </form>
@@ -93,7 +93,7 @@
             <th>Operation</th>
           </tr>
         </thead>
-        <tbody ng-controller="CommentController" ng-repeat="advert in adverts | orderBy: brandName | orderBy: modelName | orderBy:sortByCol.key">
+        <tbody ng-controller="CommentController" ng-repeat="advert in adverts">
           <tr class="ma-advert-table-row">
             <td><a href="#/"><img class="img-rounded"
                                   ng-src="{{advert.imageUrl}}"></a><br/>
@@ -112,7 +112,7 @@
             <td colspan="6">
               <div class="ma-advert-comment-title">Comment(s):</div>
               <div class="ma-advert-comment-list" ng-repeat="comment in advert.comments">
-                <div class="ma-advert-comment" ng-bind-html="comment"/>
+                <div class="ma-advert-comment" ng-bind-html="comment" />
               </div>
             </td>
           </tr>
