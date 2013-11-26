@@ -41,7 +41,7 @@ motoAdsApp.directive('commentForm', function() {
       };
 
       scope.togglePreviewMode = function() {
-        scope.preview = scope.content;
+        scope.preview = scope.content.replace(/\n/gi, "<br/>");
         scope.previewModeOn = !scope.previewModeOn;
       };
 

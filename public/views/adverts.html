@@ -108,7 +108,15 @@
               <br/><a href="" ng-click="removeAdvert($index)">Remove</a>
               <br/><a href="" ng-click="commentModeOn = true">Comment</a></td>
           </tr>
-          <tr class="ma-advert-comment-row" ng-show="commentModeOn">
+          <tr class="ma-advert-comment-list-row" ng-show="isAnyComment($index)">
+            <td colspan="6">
+              <div class="ma-advert-comment-title">Comment(s):</div>
+              <div class="ma-advert-comment-list" ng-repeat="comment in advert.comments">
+                <div class="ma-advert-comment" ng-bind-html="comment"/>
+              </div>
+            </td>
+          </tr>
+          <tr class="ma-advert-comment-form-row" ng-show="commentModeOn">
             <td colspan="6">
               <comment-form comment-mode-on="commentModeOn" />
             </td>

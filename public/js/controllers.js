@@ -101,6 +101,11 @@ motoAdsApp.controller('AdvertsController', ['$scope', '$window', 'Brand', 'Count
     $scope.editAdvert = function(_advertId) {
       $window.location = "#/editAdvert/" + _advertId;
     };
+    
+    $scope.isAnyComment = function(idx) {
+      var checkAdvert = $scope.adverts[idx];
+      return (checkAdvert.comments.length > 0);
+    };
   }]);
 
 motoAdsApp.controller('CommentController', ['$scope',

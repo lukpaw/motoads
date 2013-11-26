@@ -6,7 +6,11 @@
     "price": "35000",
     "imageUrl": "img/audi_a1_1.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : [
+      "This car is awesome I want it<br/>Beatiful color<br/>Funny look",
+      "Very cool vehicle<br/>Just perfect"
+    ]
   },
   {
     "brandName": "Audi",
@@ -15,7 +19,11 @@
     "price": "30000",
     "imageUrl": "img/audi_a1_2.jpg",
     "countryName": "Poland",
-    "regionName": "Masovia"
+    "regionName": "Masovia",
+    "comments" : [
+      "This car is awesome I want it<br/>Beatiful color<br/>Funny look",
+      "Very cool vehicle<br/>Just perfect"
+    ]
   },
   {
     "brandName": "Audi",
@@ -24,7 +32,8 @@
     "price": "28000",
     "imageUrl": "img/audi_a1_3.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "Audi",
@@ -33,7 +42,8 @@
     "price": "32000",
     "imageUrl": "img/audi_a1_4.jpg",
     "countryName": "Poland",
-    "regionName": "Silesia"
+    "regionName": "Silesia",
+    "comments" : []
   },
   {
     "brandName": "Audi",
@@ -42,7 +52,8 @@
     "price": "55000",
     "imageUrl": "img/audi_a3_1.jpg",
     "countryName": "Poland",
-    "regionName": "Masovia"
+    "regionName": "Masovia",
+    "comments" : []
   },
   {
     "brandName": "Audi",
@@ -51,7 +62,8 @@
     "price": "15000",
     "imageUrl": "img/audi_a3_2.jpg",
     "countryName": "Germany",
-    "regionName": "Hesse"
+    "regionName": "Hesse",
+    "comments" : []
   },
   {
     "brandName": "Audi",
@@ -60,7 +72,8 @@
     "price": "17000",
     "imageUrl": "img/audi_a3_3.jpg",
     "countryName": "Germany",
-    "regionName": "Hesse"
+    "regionName": "Hesse",
+    "comments" : []
   },
   {
     "brandName": "Audi",
@@ -69,7 +82,8 @@
     "price": "25000",
     "imageUrl": "img/audi_a4_1.jpg",
     "countryName": "Poland",
-    "regionName": "Lesser Poland"
+    "regionName": "Lesser Poland",
+    "comments" : []
   },
   {
     "brandName": "Audi",
@@ -78,7 +92,8 @@
     "price": "45000",
     "imageUrl": "img/audi_a4_2.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "BMW",
@@ -87,7 +102,8 @@
     "price": "37000",
     "imageUrl": "img/bmw_s3_1.jpg",
     "countryName": "Poland",
-    "regionName": "Masovia"
+    "regionName": "Masovia",
+    "comments" : []
   },
   {
     "brandName": "BMW",
@@ -96,7 +112,8 @@
     "price": "18000",
     "imageUrl": "img/bmw_s3_2.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "BMW",
@@ -105,7 +122,8 @@
     "price": "45000",
     "imageUrl": "img/bmw_s5_1.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "BMW",
@@ -114,7 +132,8 @@
     "price": "25000",
     "imageUrl": "img/bmw_s5_2.jpg",
     "countryName": "Czech Republic",
-    "regionName": "Liberec"
+    "regionName": "Liberec",
+    "comments" : []
   },
   {
     "brandName": "BMW",
@@ -123,7 +142,8 @@
     "price": "27000",
     "imageUrl": "img/bmw_s7_1.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "BMW",
@@ -132,7 +152,8 @@
     "price": "45000",
     "imageUrl": "img/bmw_s7_2.jpg",
     "countryName": "Czech Republic",
-    "regionName": "Zlin"
+    "regionName": "Zlin",
+    "comments" : []
   },
   {
     "brandName": "BMW",
@@ -141,7 +162,8 @@
     "price": "19000",
     "imageUrl": "img/bmw_s7_3.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "Citroen",
@@ -150,7 +172,8 @@
     "price": "17500",
     "imageUrl": "img/citroen_c1_1.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "Citroen",
@@ -159,7 +182,8 @@
     "price": "12000",
     "imageUrl": "img/citroen_c1_2.jpg",
     "countryName": "Czech Republic",
-    "regionName": "Karlovy Vary"
+    "regionName": "Karlovy Vary",
+    "comments" : []
   },
   {
     "brandName": "Citroen",
@@ -168,7 +192,8 @@
     "price": "22.000$",
     "imageUrl": "img/citroen_c2_1.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "Citroen",
@@ -177,7 +202,8 @@
     "price": "16.000$",
     "imageUrl": "img/citroen_c2_2.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "Citroen",
@@ -186,7 +212,8 @@
     "price": "21000",
     "imageUrl": "img/citroen_c3_1.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "Citroen",
@@ -195,7 +222,8 @@
     "price": "19000",
     "imageUrl": "img/citroen_c3_2.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "Citroen",
@@ -204,7 +232,8 @@
     "price": "13000",
     "imageUrl": "img/citroen_c3_3.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "Dacia",
@@ -213,7 +242,8 @@
     "price": "35000",
     "imageUrl": "img/dacia_duster_1.jpg",
     "countryName": "Poland",
-    "regionName": "Masovia"
+    "regionName": "Masovia",
+    "comments" : []
   },
   {
     "brandName": "Dacia",
@@ -222,7 +252,8 @@
     "price": "30000",
     "imageUrl": "img/dacia_duster_2.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "Dacia",
@@ -231,7 +262,8 @@
     "price": "25000",
     "imageUrl": "img/dacia_logan_1.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "Dacia",
@@ -240,7 +272,8 @@
     "price": "9000",
     "imageUrl": "img/dacia_logan_2.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "Dacia",
@@ -249,7 +282,8 @@
     "price": "23000",
     "imageUrl": "img/dacia_sandero_1.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   },
   {
     "brandName": "Dacia",
@@ -258,6 +292,7 @@
     "price": "14000",
     "imageUrl": "img/dacia_sandero_2.jpg",
     "countryName": "Germany",
-    "regionName": "Bavaria"
+    "regionName": "Bavaria",
+    "comments" : []
   }
 ]

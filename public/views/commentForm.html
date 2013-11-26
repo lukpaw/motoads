@@ -1,9 +1,9 @@
-<div class="ma-advert-comment">
+<div class="ma-advert-comment-form">
   <form name="commentForm" novalidate>
     <div ng-hide="previewModeOn">
       <textarea ng-model="content" placeholder="Write a comment..."></textarea>
     </div>
-    <div class="ma-advert-comment-preview" ng-show="previewModeOn">{{preview}}</div>
+    <div class="ma-advert-comment-preview" ng-show="previewModeOn" ng-bind-html="preview"></div>
     <div class="control-group">
       <div class="controls">
         <button ng-click="togglePreviewMode()" ng-disabled="isUnchanged()"

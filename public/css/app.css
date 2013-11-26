@@ -39,26 +39,48 @@
   height: 120px;
 }
 
-.ma-advert-comment-row {
+.ma-advert-comment-list-row {
   width: 100%;
+}
+
+.ma-advert-comment-title {
+  margin-left: 9px;  
+  color: dimgrey;
+  font-size: small;
 }
 
 .ma-advert-comment {
+  padding: 3px 5px;
+  margin: 5px 10px 10px 10px;
+  width: 96%;
+  border-top: 1px gainsboro dotted;
+  color: dimgrey;
+  font-size: small;
+}
+
+.ma-advert-comment-form-row {
   width: 100%;
 }
 
-.ma-advert-comment textarea {
-  width: 96%;
+.ma-advert-comment-form {
+  width: 100%;
+}
+
+.ma-advert-comment-form textarea {
+  width: 100%;
+  font-size: small;
 }
 
 .ma-advert-comment-preview {
+  width: 100%;
   padding: 5px;
   margin: 5px 0 10px 0;
-  min-height: 2.5em;
+  min-height: 3em;
   border: 1px gainsboro solid;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background-color: whitesmoke;
+  background-color: snow;
+  font-size: small;
 }
 
 .ma-add-advert-form button, .ma-edit-advert-form button {
