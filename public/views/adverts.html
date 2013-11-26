@@ -93,7 +93,7 @@
             <th>Operation</th>
           </tr>
         </thead>
-        <tbody ng-controller="CommentController" ng-repeat="advert in adverts| orderBy:sortByCol.key">
+        <tbody ng-controller="CommentController" ng-repeat="advert in adverts | orderBy: brandName | orderBy: modelName | orderBy:sortByCol.key">
           <tr class="ma-advert-table-row">
             <td><a href="#/"><img class="img-rounded"
                                   ng-src="{{advert.imageUrl}}"></a><br/>
@@ -118,7 +118,7 @@
           </tr>
           <tr class="ma-advert-comment-form-row" ng-show="commentModeOn">
             <td colspan="6">
-              <comment-form comment-mode-on="commentModeOn" />
+              <comment-form comment-mode-on="commentModeOn" advert-id="advert._id" />
             </td>
           </tr>          
         </tbody>

@@ -8,9 +8,9 @@
       <div class="controls">
         <button ng-click="togglePreviewMode()" ng-disabled="isUnchanged()"
                 class="btn btn-info btn-small">{{ previewModeOn && 'Edit' || 'Preview' }}</button>               
-        <button ng-click="addComment()" ng-disabled="isUnchanged()"
-                class="btn btn-success btn-small">Save</button>
-        <button ng-click="cancelComment()"
+        <button ng-click="sendCommentForm()" ng-disabled="isUnchanged()"
+                class="btn btn-success btn-small">Send</button>
+        <button ng-click="closeCommentForm()"
                 class="btn btn-small">Cancel</button>                      
       </div>
     </div>

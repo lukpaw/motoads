@@ -18,20 +18,20 @@ motoAdsApp.directive('maCurrency', function() {
   };
 });
 
-motoAdsApp.directive('commentForm', function() {
+motoAdsApp.directive('commentForm', function(Advert) {
   return {
     restrict: "E",
     replace: true,
     scope: {
-      commentModeOn: '='
+      commentModeOn: '=',
+      advertId: '='
     },
     templateUrl: "views/commentForm.html",
-    link: function(scope) {
+    link: function(scope, element, attrs) {
       scope.content = '';
       scope.previewModeOn = false;
 
-      scope.cancelComment = function() {
-        scope.content = '';
+      scope.closeCommentForm = function() {
         scope.previewModeOn = false;
         scope.commentModeOn = false;
       };
@@ -45,8 +45,16 @@ motoAdsApp.directive('commentForm', function() {
         scope.previewModeOn = !scope.previewModeOn;
       };
 
-      scope.addComment = function() {
-        alert('Thanks for your comment');
+      scope.sendCommentForm = function() {
+        var advert = Advert.get({advertId: scope.advertId}, function() {
+          advert.comments.push(scope.content);
+          Advert.update(advert, function() {
+            scope.closeCommentForm();
+            scope.$parent.advert.comments.push(scope.content);
+            scope.content = '';
+          });
+        });
+
         scope.preview = scope.content;
         scope.previewModeOn = true;
       };
