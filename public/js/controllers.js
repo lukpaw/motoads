@@ -24,13 +24,12 @@ motoAdsApp.controller('AdvertsController', ['$scope', '$filter', '$window', 'Bra
         "name": "Price"
       }];
 
-    $scope.sortAdverts = function() {
-      if ($scope.sortByCol) {
-        console.log('$scope.sortByCol.key = ' + $scope.sortByCol.key);
-        var unsortedAdverts = $scope.adverts;
-        $scope.adverts = $filter('orderBy')(unsortedAdverts, $scope.sortByCol.key);
+    $scope.sortAdverts = function(sortKey) {
+      if (sortKey) {
+        console.log('sortKey = ' + sortKey);
+        $scope.adverts = $filter('orderBy')($scope.adverts, sortKey);
       }
-    }
+    };
 
     $scope.adverts = [];
     var allAdverts = Advert.query(filterAdverts);
@@ -96,6 +95,7 @@ motoAdsApp.controller('AdvertsController', ['$scope', '$filter', '$window', 'Bra
         }
         $scope.adverts.push(row);
       });
+      $scope.adverts = $filter('orderBy')($scope.adverts, ['brandName', 'modelName']);
     }
 
     $scope.removeAdvert = function(idx) {
@@ -109,16 +109,15 @@ motoAdsApp.controller('AdvertsController', ['$scope', '$filter', '$window', 'Bra
     $scope.editAdvert = function(_advertId) {
       $window.location = "#/editAdvert/" + _advertId;
     };
-
-    $scope.isAnyComment = function(idx) {
-      var checkAdvert = $scope.adverts[idx];
-      return (checkAdvert.comments.length > 0);
-    };
   }]);
 
 motoAdsApp.controller('CommentController', ['$scope',
   function($scope) {
     $scope.commentModeOn = false;
+    
+    $scope.isAnyComment = function() {
+      return ($scope.advert.comments.length > 0);
+    };
   }]);
 
 motoAdsApp.controller('AddAdvertController', ['$scope', '$window', 'Brand', 'Country', 'Advert',
@@ -172,14 +171,14 @@ motoAdsApp.controller('EditAdvertController', ['$scope', '$routeParams', '$windo
       angular.forEach($scope.brands, function(item) {
         if (item.name === brandName) {
           $scope.brand = item;
-          return 1;
+          return;
         }
       });
 
       angular.forEach($scope.brand.models, function(item) {
         if (item.name === modelName) {
           $scope.model = item;
-          return 1;
+          return;
         }
       });
     }
@@ -190,14 +189,14 @@ motoAdsApp.controller('EditAdvertController', ['$scope', '$routeParams', '$windo
       angular.forEach($scope.countries, function(item) {
         if (item.name === countryName) {
           $scope.country = item;
-          return 1;
+          return;
         }
       });
 
       angular.forEach($scope.country.regions, function(item) {
         if (item.name === regionName) {
           $scope.region = item;
-          return 1;
+          return;
         }
       });
     }

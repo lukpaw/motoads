@@ -3,15 +3,15 @@
     <div ng-hide="previewModeOn">
       <textarea ng-model="content" placeholder="Write a comment..."></textarea>
     </div>
-    <div class="ma-advert-comment-preview" ng-show="previewModeOn" ng-bind-html="preview"></div>
+    <div class="ma-advert-comment-preview" ng-show="previewModeOn" ng-bind-html="preview | newlines"></div>
     <div class="control-group">
       <div class="controls">
         <button ng-click="togglePreviewMode()" ng-disabled="isUnchanged()"
-                class="btn btn-info btn-small">{{ previewModeOn && 'Edit' || 'Preview' }}</button>               
+                class="btn btn-info btn-small">{{ previewModeOn && 'Edit' || 'Preview' }}</button>
         <button ng-click="sendCommentForm()" ng-disabled="isUnchanged()"
                 class="btn btn-success btn-small">Send</button>
         <button ng-click="closeCommentForm()"
-                class="btn btn-small">Cancel</button>                      
+                class="btn btn-small">Cancel</button>
       </div>
     </div>
   </form>
