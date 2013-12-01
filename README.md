@@ -11,3 +11,5 @@ http://coderlife.blogspot.com/2013/11/angularjs-example2.html
 http://coderlife.blogspot.com/2013/11/angularjs-example3.html
 
 http://coderlife.blogspot.com/2013/11/angularjs-example4.html
+
+http://coderlife.blogspot.com/2013/12/angularjs-example5.html
